@@ -1,1 +1,0 @@
-alert("Diese Website ist aktuell noch nicht fertig.");
