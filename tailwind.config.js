@@ -2,7 +2,9 @@
 module.exports = {
   content: [
     './index.html',
-    'assets/info/legal-notice.html'
+    'assets/info/contact.html',
+    'assets/info/legal-notice.html',
+    'assets/info/privacy.html',  
   ],
   theme: {
     extend: {},
