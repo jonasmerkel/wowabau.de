@@ -1,6 +1,6 @@
-npx tailwindcss -i ./src/input.css -o ./assets/css/build.css --watch
+npx tailwindcss -i ./src/input.css -o ./Content/assets/css/build.css --watch
 
-npx tailwindcss -o assets/css/build.css --minify
+npx tailwindcss -o ./Content/assets/css/build.css --minify
 
 
 Fehler: 'sh: 1: tailwindcss: Permission denied' beheben mit: npm rebuild
