@@ -1,3 +1,5 @@
-Redirect 301 /contact http://wowabau.de/assets/info/contact.html
-Redirect 301 /legal-notice http://wowabau.de/assets/info/legal-notice.html
-Redirect 301 /privacy http://wowabau.de/assets/info/privacy.html
+Redirect 301 /contact https://wowabau.de/assets/info/contact.html
+Redirect 301 /legal-notice https://wowabau.de/assets/info/legal-notice.html
+Redirect 301 /privacy https://wowabau.de/assets/info/privacy.html
+
+ErrorDocument 404 httsp://wowabau.de/404.html
