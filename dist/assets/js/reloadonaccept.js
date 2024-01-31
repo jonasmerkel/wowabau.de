@@ -1,0 +1,1 @@
+function CookiebotCallback_OnAccept() { Cookiebot.changed && document.location.reload(); }
