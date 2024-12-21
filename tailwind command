@@ -1,1 +1,3 @@
 npx tailwindcss -i ./lib/css/input.css -o ./dist/assets/css/build.css --watch
+
+npx tailwindcss -o ./dist/assets/css/build.css --minify
