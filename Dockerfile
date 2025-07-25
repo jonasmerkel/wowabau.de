@@ -1,14 +1,17 @@
-# Verwende das offizielle nginx-Image
+# Use the official NGINX image as a base
 FROM nginx:alpine
 
-# Entferne die Standard-NGINX-Website
-RUN rm -rf /usr/share/nginx/html/*
+# Set working directory
+WORKDIR /usr/share/nginx/html
 
-# Kopiere den Inhalt von /dist ins NGINX-Verzeichnis
-COPY dist/ /usr/share/nginx/html/
+# Remove default nginx static assets
+RUN rm -rf ./*
 
-# Exponiere Port 80 für den Webserver
+# Copy built static files from dist to nginx html directory
+COPY dist/ .
+
+# Expose port 80
 EXPOSE 80
 
-# Starte NGINX im Vordergrund
-CMD ["nginx", "-g", "daemon off;"]
+# Use a minimal, explicit entrypoint
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
