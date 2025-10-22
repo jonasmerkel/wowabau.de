@@ -29,21 +29,19 @@
 </head>
 
 <body>
-    <nav class="tailwind-menu z-50 sticky top-0 w-full p-4 bg-white shadow-sm">
-        <div class="flex flex-wrap items-center justify-between container mx-auto px-4">
-            <div class="flex shrink-0 mr-12">
-                <a href="https://wowabau.de">
-                    <img src="../images/wowabau_r2.png" style="height: 40px" alt="WOWA BAU Logo" height="40" />
-                </a>
+    <nav class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto flex items-center justify-between px-4 py-3">
+            <a href="../../index.html" class="flex items-center">
+                <img src="../images/wowabau_r2.png" alt="WOWA BAU Logo" class="h-10 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="../../index.html#about" class="hover:text-sky-600 font-semibold">Über Uns</a>
+                <a href="../../index.html#services" class="hover:text-sky-600 font-semibold">Leistungen</a>
+                <a href="../../index.html#gallery" class="hover:text-sky-600 font-semibold">Galerie</a>
+                <a href="contact.html" class="hover:text-sky-600 font-semibold">Kontakt</a>
             </div>
-            <div class="submenu w-full hidden grow lg:flex lg:items-center lg:w-auto">
-                <div class="lg:mr-auto">
-                    <a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-gray-700 hover:text-sky-600 font-semibold uppercase"
-                        href="../../index.html">Startseite</a>
-                    <a class="block lg:inline-block mt-4 lg:mt-0 mr-10 text-gray-700 hover:text-sky-600 font-semibold uppercase"
-                        href="../../index.html">zurück</a>
-                </div>
-            </div>
+            <a href="contact.html"
+                class="md:hidden bg-sky-600 text-white px-4 py-2 rounded shadow font-semibold">Kontakt</a>
         </div>
     </nav>
 
@@ -53,10 +51,13 @@
                 <img class="h-40 sm:h-64 w-auto" src="../images/mail.png" alt="Mail Image">
             </div>
             <p class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-600">Wir freuen uns, von Ihnen zu hören.</p>
-            <p class="text-2xl md:text-3xl lg:text-4xl text-gray-600 mb-6">Bitte kontaktieren Sie uns telefonisch oder per E-Mail.</p>
+            <p class="text-2xl md:text-3xl lg:text-4xl text-gray-600 mb-6">Bitte kontaktieren Sie uns telefonisch oder
+                per E-Mail.</p>
             <div class="space-y-3">
-                <a href="tel:+4917684733395" class="block text-2xl md:text-4xl font-extrabold text-sky-700 hover:underline">0176 84733395</a>
-                <a href="mailto:wowabau@outlook.de" class="block text-xl md:text-3xl font-bold text-sky-700 hover:underline">wowabau@outlook.de</a>
+                <a href="tel:+4917684733395"
+                    class="block text-2xl md:text-4xl font-extrabold text-sky-700 hover:underline">0176 84733395</a>
+                <a href="mailto:wowabau@outlook.de"
+                    class="block text-xl md:text-3xl font-bold text-sky-700 hover:underline">wowabau@outlook.de</a>
             </div>
         </div>
     </section>
