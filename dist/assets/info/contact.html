@@ -47,63 +47,18 @@
         </div>
     </nav>
 
-    <section>
-        <form class="flex justify-center" action="https://formspree.io/f/xayrdaez" method="post">
-            <div>
-                <div class="flex flex-col justify-center">
-                    <div class="flex justify-center">
-                        <img class="h-40 sm:h-80 w-auto" src="../images/mail.png" alt="Mail Image">
-                    </div>
-                    <div class="text-center text-md md:text-2xl text-gray-600">
-                        <h2>Wir freuen uns, von Ihnen zu hören.</h2>
-                    </div>
-                    <div class="text-center text-md md:text-2xl text-gray-600">
-                        <h2>
-                            Senden Sie uns eine Nachricht und wir antworten Ihnen so schnell
-                            wie möglich.
-                        </h2>
-                    </div>
-                </div>
-                <div class="flex flex-col items-center text-center justify-center p-4">
-                    <p class="text-lg text-sky-600 underline"><a href="tel:+49 176 84733395">0176 84733395</a></p>
-                    <p class="text-lg text-sky-600 underline"><a href="mailto:wowabau@outlook.de">wowabau@outlook.de</a></p>
-                </div>
-                <div class="p-4">
-                    <div class="mb-5">
-                        <label for="name" class="block mb-2 text-sm font-medium text-gray-900">Name*</label>
-                        <input type="text" id="name" name="Name"
-                            class="flex justify-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            required />
-                    </div>
-                    <div class="mb-5">
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">E-Mail*</label>
-                        <input type="email" id="email" name="E-Mail"
-                            class="flex justify-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            required />
-                    </div>
-                    <div class="mb-5">
-                        <label for="tel" class="block mb-2 text-sm font-medium text-gray-900">Telefon</label>
-                        <input type="tel" id="tel" name="Telefon"
-                            class="flex justify-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" />
-                    </div>
-                    <div class="mb-5">
-                        <label for="textfield" class="block mb-2 text-sm font-medium text-gray-900">Nachricht*</label>
-                        <textarea type="textfield" id="textfield" name="Nachricht" rows="3"
-                            class="flex justify-center bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-                            required></textarea>
-                    </div>
-                    <div class="mb-5 flex items-center">
-                        <input id="link-checkbox" type="checkbox" value="" class="w-4 h-4 mr-2 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500" 
-                        required >
-                        <label for="link-checkbox" class="ms-2 text-sm font-medium text-gray-900">Ich bin damit einverstanden, dass meine personenbezogenen Daten gemäß den <a href="../info/privacy.html" class="text-blue-600 hover:underline">Datenschutzbestimmungen</a> gespeichert und verarbeitet werden.</label>
-                    </div>
-                    <button type="submit"
-                        class="text-white bg-sky-600 hover:bg-sky-700 focus:ring-4 focus:outline-hidden focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
-                        Absenden
-                    </button>
-                </div>
+    <section class="py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center mb-6">
+                <img class="h-40 sm:h-64 w-auto" src="../images/mail.png" alt="Mail Image">
             </div>
-        </form>
+            <p class="text-2xl md:text-4xl lg:text-5xl font-bold text-gray-600">Wir freuen uns, von Ihnen zu hören.</p>
+            <p class="text-2xl md:text-3xl lg:text-4xl text-gray-600 mb-6">Bitte kontaktieren Sie uns telefonisch oder per E-Mail.</p>
+            <div class="space-y-3">
+                <a href="tel:+4917684733395" class="block text-2xl md:text-4xl font-extrabold text-sky-700 hover:underline">0176 84733395</a>
+                <a href="mailto:wowabau@outlook.de" class="block text-xl md:text-3xl font-bold text-sky-700 hover:underline">wowabau@outlook.de</a>
+            </div>
+        </div>
     </section>
 
 </body>
