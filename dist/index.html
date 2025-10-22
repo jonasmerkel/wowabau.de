@@ -2,6 +2,31 @@
 <html lang="de">
 
 <head>
+  <script>
+    // Remove Google Analytics and advertising cookies
+    function deleteCookie(name, domain) {
+      var d = domain ? ';domain=' + domain : '';
+      document.cookie = name + '=; Max-Age=0; path=/' + d;
+      document.cookie = name + '=; Max-Age=0; path=/';
+    }
+
+    function removeGACookies() {
+      // Patterns for Google Analytics/Ads cookies
+      var patterns = [
+        /^_ga($|_)/, /^_gid$/, /^_gat($|_)/, /^_gac_/, /^_gat_gtag_/, /^_gat_UA-/, /^_gcl_/
+      ];
+      var cookies = document.cookie.split(';');
+      var domain = window.location.hostname.replace(/^www\./, '');
+      cookies.forEach(function (cookie) {
+        var name = cookie.split('=')[0].trim();
+        if (patterns.some(function (re) { return re.test(name); })) {
+          deleteCookie(name, domain);
+          deleteCookie(name, '.' + domain);
+          deleteCookie(name);
+        }
+      });
+    }
+  </script>
   <link rel="stylesheet" id="silktide-consent-manager-css" href="./assets/css/silktide-consent-manager.css">
   <script src="./assets/js/silktide-consent-manager.js"></script>
   <script>
@@ -26,19 +51,24 @@
           id: "analytics",
           name: "Statistik",
           description: "<p>Diese Cookies helfen uns, die Website zu verbessern, indem sie analysieren, welche Seiten am beliebtesten sind und wie sich Besucher auf der Website bewegen.</p>",
-          defaultValue: true,
           onAccept: function () {
-            gtag('consent', 'update', {
-              analytics_storage: 'granted',
-            });
-            dataLayer.push({
-              'event': 'consent_accepted_analytics',
-            });
+            loadGoogleTag();
+            if (typeof gtag === 'function') {
+              gtag('consent', 'update', {
+                analytics_storage: 'granted',
+              });
+              dataLayer.push({
+                'event': 'consent_accepted_analytics',
+              });
+            }
           },
           onReject: function () {
-            gtag('consent', 'update', {
-              analytics_storage: 'denied',
-            });
+            if (typeof gtag === 'function') {
+              gtag('consent', 'update', {
+                analytics_storage: 'denied',
+              });
+            }
+            removeGACookies();
           }
         },
         {
@@ -46,21 +76,27 @@
           name: "Marketing",
           description: "<p>Diese Cookies bieten zusätzliche Funktionen und Personalisierung, um Ihr Erlebnis zu verbessern. Sie können von uns oder unseren Partnern gesetzt werden.</p>",
           onAccept: function () {
-            gtag('consent', 'update', {
-              ad_storage: 'granted',
-              ad_user_data: 'granted',
-              ad_personalization: 'granted',
-            });
-            dataLayer.push({
-              'event': 'consent_accepted_advertising',
-            });
+            loadGoogleTag();
+            if (typeof gtag === 'function') {
+              gtag('consent', 'update', {
+                ad_storage: 'granted',
+                ad_user_data: 'granted',
+                ad_personalization: 'granted',
+              });
+              dataLayer.push({
+                'event': 'consent_accepted_advertising',
+              });
+            }
           },
           onReject: function () {
-            gtag('consent', 'update', {
-              ad_storage: 'denied',
-              ad_user_data: 'denied',
-              ad_personalization: 'denied',
-            });
+            if (typeof gtag === 'function') {
+              gtag('consent', 'update', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+              });
+            }
+            removeGACookies();
           }
         }
       ],
@@ -87,13 +123,23 @@
     });
   </script>
 
-  <!-- Google Tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y55QN6K9BT"></script>
+  <!-- Google Tag (gtag.js) will be loaded dynamically after consent -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-Y55QN6K9BT');
+    function loadGoogleTag() {
+      if (window.gtagScriptLoaded) return;
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y55QN6K9BT';
+      script.onload = function () {
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', 'G-Y55QN6K9BT', { 'anonymize_ip': true });
+      };
+      document.head.appendChild(script);
+      window.gtagScriptLoaded = true;
+    }
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
